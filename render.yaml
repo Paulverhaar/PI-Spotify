@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: spotify-dashboard
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn spotify_dashboard:app
+    envVars:
+      - key: SPOTIFY_CLIENT_ID
+        sync: false
+      - key: SPOTIFY_CLIENT_SECRET
+        sync: false
